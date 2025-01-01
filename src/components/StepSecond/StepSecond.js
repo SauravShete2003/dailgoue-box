@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./StepSecond.css";
+import toast, { Toaster } from "react-hot-toast";
 
 function StepTwo() {
   const [email, setEmail] = useState("");
@@ -8,37 +9,35 @@ function StepTwo() {
   const navigate = useNavigate();
 
   const handleNext = () => {
-    // Check if email or phone is empty
     if (!email.trim() || !phone.trim()) {
-      alert("Please fill in both email and phone fields.");
+     toast.error("Please fill in both email and phone fields.");
       return;
     }
   
-    // Validate email format
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-      alert("Please enter a valid email address.");
+     toast.error("Please enter a valid email address.");
       return;
     }
   
-    // Validate phone number (only digits allowed)
     const phoneRegex = /^\d+$/;
     if (!phoneRegex.test(phone)) {
-      alert("Please enter a valid phone number (digits only).");
+     toast.error("Please enter a valid phone number (digits only).");
       return;
     }
-  
-    // Save to localStorage if validation passes
+
     localStorage.setItem("email", email);
     localStorage.setItem("phone", phone);
-  
-    // Navigate to the summary page
-    navigate("/summary");
-  };
-  
-  const handleBack = () => {
-    navigate("/");
-  };
+   
+    setTimeout(()=>{
+      navigate("/summary");
+      }, 2000);
+    }
+    
+    const handleBack = () => {
+      navigate("/");
+    };
+
 
   return (
     <div className="form-container">
@@ -67,8 +66,10 @@ function StepTwo() {
           Next
         </button>
       </div>
+      <Toaster/>
     </div>
   );
-}
+  };
+
 
 export default StepTwo;
