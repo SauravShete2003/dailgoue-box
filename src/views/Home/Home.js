@@ -9,7 +9,7 @@ function Home() {
     <Routes>
       <Route path="/" element={<StepOne />} />
       <Route path="/step-second" element={<StepSecond />} />
-      <Route path="/summary" element={<Summary />} />x
+      <Route path="/summary" element={<Summary />} />
     </Routes>
   );
 }

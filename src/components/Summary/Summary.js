@@ -1,36 +1,48 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import {toast , Toaster} from 'react-hot-toast';
+import "./Summary.css";
 
 function Summary() {
   const navigate = useNavigate();
-  const name = localStorage.getItem('name');
-  const email = localStorage.getItem('email');
-  const phone = localStorage.getItem('phone');
+  const name = localStorage.getItem("name");
+  const email = localStorage.getItem("email");
+  const phone = localStorage.getItem("phone");
 
   const handleBack = () => {
-    navigate('/step-two'); // Go back to Step 2
+    navigate("/step-second");
   };
 
   const handleSubmit = () => {
-    alert('Form Submitted Successfully!');
-    localStorage.clear(); // Clear localStorage after submission
+    toast.success("Form Submitted Successfully!")
+    localStorage.clear();
   };
 
   return (
-    <div>
-      <h2>Summary</h2>
+    <div className="summary-container">
+    <h2 className="summary-title">Summary</h2>
+    <div className="summary-details">
       <p>
-        <strong>Name:</strong> {name}
+        <strong>Name:</strong> <span>{name}</span>
       </p>
       <p>
-        <strong>Email:</strong> {email}
+        <strong>Email:</strong> <span>{email}</span>
       </p>
       <p>
-        <strong>Phone:</strong> {phone}
+        <strong>Phone:</strong> <span>{phone}</span>
       </p>
-      <button onClick={handleBack}>Back</button>
-      <button onClick={handleSubmit}>Submit</button>
     </div>
+    <div className="button-group">
+      <button className="summary-button back-button" onClick={handleBack}>
+        Back
+      </button>
+      <button className="summary-button" onClick={handleSubmit}>
+        Submit
+      </button>
+    </div>
+    <Toaster/>
+  </div>
+
   );
 }
 

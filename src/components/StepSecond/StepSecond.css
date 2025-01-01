@@ -1,0 +1,97 @@
+/* Center the form container */
+.form-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    text-align: center;
+  }
+  
+  /* Style the title */
+  .form-title {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  
+  /* Style the input fields */
+  .form-input {
+    width: 90%;
+    padding: 12px 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+  }
+  
+  /* Highlight input on focus */
+  .form-input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 4px rgba(0, 123, 255, 0.4);
+  }
+  
+  /* Style the button group */
+  .button-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  
+  /* Style the buttons */
+  .form-button {
+    padding: 12px 20px;
+    font-size: 16px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 45%; /* Adjust button width */
+  }
+  
+  .form-button.back-button {
+    background-color: #6c757d; /* Gray for back button */
+  }
+  
+  .form-button.back-button:hover {
+    background-color: #5a6268; /* Darker gray on hover */
+  }
+  
+  .form-button {
+    background-color: #007bff; /* Blue for next button */
+  }
+  
+  .form-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: scale(1.05);
+  }
+  
+  /* Add responsive design */
+  @media (max-width: 500px) {
+    .form-container {
+      padding: 15px;
+    }
+  
+    .form-input {
+      width: 100%;
+    }
+  
+    .form-title {
+      font-size: 20px;
+    }
+  
+    .form-button {
+      width: 100%;
+    }
+  
+    .button-group {
+      flex-direction: column;
+    }
+  }
+  
